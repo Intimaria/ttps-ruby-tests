@@ -7,6 +7,8 @@
 # Finalmente, podés consultar el porcentaje de código cubierto por los tests al
 # abrir con tu navegador web el archivo `coverage/index.html`.
 
-# def reemplazar(str)
-#   # ...
-# end
+def reemplazar(str)
+  str.gsub!("{", "do\n")
+  str.gsub!("}", "\nend")
+  str
+end
