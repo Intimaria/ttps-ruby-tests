@@ -5,7 +5,7 @@ def formato(casi, futuro, minutos, tiempo)
   str << "casi " if casi
   hora = futuro ? (tiempo.hour + 1) : tiempo.hour
   hora -= 12 if tiempo.strftime("%p") == "PM"
-  hora = 0 if (tiempo.strftime("%p") == "PM") & (hora == 12)
+  hora = 0 if (tiempo.strftime("%p") == "PM") && (hora == 12)
   str << (hora == 1 ? "es la " : "son las ")
   str << hora.to_s << minutos
   str.capitalize
