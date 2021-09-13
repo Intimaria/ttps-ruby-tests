@@ -3,7 +3,7 @@ require 'time'
 def formato(casi, futuro, minutos, tiempo)
   str = ""
   str << "casi " if casi
-  hora = casi || futuro ? (tiempo.hour + 1) : tiempo.hour
+  hora = futuro ? (tiempo.hour + 1) : tiempo.hour
   hora -= 12 if tiempo.strftime("%p") == "PM"
   hora = 0 if (tiempo.strftime("%p") == "PM") & (hora == 12)
   str << (hora == 1 ? "es la " : "son las ")
