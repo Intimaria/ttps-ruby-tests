@@ -1,4 +1,7 @@
-def multiplos_de(arr, tope)
-  n = arr.reduce(:lcm)
-  (0..tope).filter { |x| x if (x % n).zero? }.sum
+def notacion_hexadecimal(array)
+  '#' << array.map { |x| x.to_s(16) }.join.upcase
+end
+
+def notacion_entera(arr)
+  arr.reduce { |sum, n| sum + n * 256**arr.find_index(n) }
 end
