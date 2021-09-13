@@ -4,8 +4,8 @@ def formato(casi, futuro, minutos, tiempo)
   str = ""
   str << "casi " if casi
   str << (tiempo.strftime("%l").to_i == 1 ? "es la " : "son las ")
-  str << futuro ? (tiempo.strftime("%l").to_i + 1).to_s : tiempo.strftime("%l").to_i.to_s
-  str << hr << minutos
+  str << (futuro ? (tiempo.strftime("%l").to_i + 1).to_s : tiempo.strftime("%l").to_i.to_s)
+  str << minutos
   str.capitalize
 end
 
