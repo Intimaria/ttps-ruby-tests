@@ -1,27 +1,27 @@
 require 'time'
 
-def formato(casi, futuro, minutos, tm)
-  str = ""; hr = ""
-  str << "casi " if casi 
-  str << (tm.strftime("%l").to_i == 1 ? "es la " : "son las ")
-  hr = futuro ? (tm.strftime("%l").to_i + 1).to_s : tm.strftime("%l").to_i.to_s
+def formato(casi, futuro, minutos, tiempo)
+  str = ""
+  str << "casi " if casi
+  str << (tiempo.strftime("%l").to_i == 1 ? "es la " : "son las ")
+  str << futuro ? (tiempo.strftime("%l").to_i + 1).to_s : tiempo.strftime("%l").to_i.to_s
   str << hr << minutos
   str.capitalize
 end
 
-def tiempo_en_palabras(tm)
-  case tm.min
+def tiempo_en_palabras(tiempo)
+  case tiempo.min
   when 0..10
-    formato(false, false, " en punto", tm)
+    formato(false, false, " en punto", tiempo)
   when 11..20
-    formato(false, false, " y cuarto", tm)
+    formato(false, false, " y cuarto", tiempo)
   when 21..34
-    formato(false, false, " y media", tm)
+    formato(false, false, " y media", tiempo)
   when 35..44
-    formato(false, true, " menos veinticinco", tm)
+    formato(false, true, " menos veinticinco", tiempo)
   when 45..55
-    formato(false, true, " menos cuarto", tm)
+    formato(false, true, " menos cuarto", tiempo)
   when 56..59
-    formato(true, true, "", tm)
+    formato(true, true, "", tiempo)
   end
 end

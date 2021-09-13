@@ -1,5 +1,5 @@
 def longitud(array)
   a = []
-  array.map { |x| x == nil ? a << 0 : a << x.length  }
+  array.map { |x| a << (x.nil? ? 0 : x.length) }
   a
 end
